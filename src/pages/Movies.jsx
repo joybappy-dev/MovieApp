@@ -4,6 +4,7 @@ function Movies() {
   const [shows, setShows] = useState([]);
   const [loadingShows, setLoadingShows] = useState(false);
   const [error, setError] = useState(null);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     async function fetchShows() {
@@ -34,7 +35,24 @@ function Movies() {
     return <div className="movies">Error: {error}</div>;
   }
 
-  console.log(shows);
+  async function handleSearch(e) {
+    try {
+      setLoadingShows(true);
+      setSearch(e.target.value);
+      const res = await fetch(
+        `https://api.tvmaze.com/search/shows?q=${search}`,
+      );
+      const data = await res.json();
+      const showsData = data?.map((element) => {
+        return element?.show;
+      });
+      setShows(showsData);
+    } catch (error) {
+      console.error("Error fetching shows: ", error);
+    } finally {
+      setLoadingShows(false);
+    }
+  }
 
   return (
     <div className="movies container mx-auto px-4 py-12 max-w-7xl">
@@ -47,6 +65,7 @@ function Movies() {
               type="search"
               placeholder="Search for movies or shows..."
               aria-label="Search movies"
+              onChange={(e) => handleSearch(e)}
             />
           </div>
           <button
@@ -59,14 +78,18 @@ function Movies() {
       </div>
 
       {/* --- Responsive Grid Section --- */}
-      <div className={`${!loadingShows && "grid"} grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 sm:gap-6 min-h-screen md:w-7xl`}>
+      <div
+        className={`${!loadingShows && "grid"} grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 sm:gap-6 min-h-screen md:w-7xl`}
+      >
         {loadingShows ? (
-          <div className="text-4xl text-center animate-bounce mt-64">Loading...</div>
+          <div className="text-4xl text-center animate-bounce mt-64">
+            Loading...
+          </div>
         ) : (
           shows.slice(0, 20).map((show, idx) => (
             <div
               key={show?.id}
-              className="group flex flex-col overflow-hidden  bg-white shadow-sm ring-1 ring-gray-200 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl dark:bg-gray-800 dark:ring-gray-700"
+              className="group flex flex-col overflow-hidden  bg-white shadow-sm ring-1 ring-gray-200 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl dark:bg-gray-800 dark:ring-gray-700 h-fit"
             >
               {/* Image Wrapper */}
               <div className="relative aspect-2/3 w-full overflow-hidden bg-gray-100 dark:bg-gray-900">
