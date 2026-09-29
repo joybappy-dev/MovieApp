@@ -61,23 +61,17 @@ function Movies() {
     <div>
       <div className="movies container mx-auto px-4 py-12 max-w-7xl">
         {/* --- Search Section --- */}
-        <div className="mx-auto mb-16 max-w-7xl">
-          <form className="flex w-full gap-3">
-            <div className="relative flex-1">
+        <div className="mx-auto mb-16 w-full">
+          <form className="w-full">
+            <div className="relative w-full">
               <input
-                className="w-full rounded-xl border border-gray-300 bg-gray-50 px-5 py-3.5 text-sm outline-none transition-all focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:focus:border-blue-500"
+                className="lg:w-7xl w-full rounded-xl border border-gray-300 bg-gray-50 px-5 py-3.5 text-sm outline-none transition-all focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:focus:border-blue-500"
                 type="search"
                 placeholder="Search for movies or shows..."
                 aria-label="Search movies"
                 onChange={(e) => handleSearch(e)}
               />
             </div>
-            <button
-              type="submit"
-              className="rounded-xl bg-blue-600 px-7 py-3.5 font-semibold text-white shadow-md transition-all hover:bg-blue-700 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-500/50 active:scale-95"
-            >
-              Search
-            </button>
           </form>
         </div>
 
