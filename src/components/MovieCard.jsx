@@ -1,6 +1,14 @@
-function MovieCard({ show, idx }) {
+function MovieCard({ show, idx, setIsModalOpen, setClickedShow }) {
+  function handleMovieCardClick(show) {
+    console.log(show.id);
+    setClickedShow(show);
+    setIsModalOpen(true);
+  }
   return (
-    <div className="card group flex flex-col overflow-hidden  bg-white shadow-sm ring-1 ring-gray-200 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl dark:bg-gray-800 dark:ring-gray-700 h-fit">
+    <div
+      onClick={() => handleMovieCardClick(show)}
+      className="card cursor-pointer group flex flex-col overflow-hidden  bg-white shadow-sm ring-1 ring-gray-200 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl dark:bg-gray-800 dark:ring-gray-700 h-fit"
+    >
       {/* Image Wrapper */}
       <div className="relative aspect-2/3 w-full overflow-hidden bg-gray-100 dark:bg-gray-900">
         <img
