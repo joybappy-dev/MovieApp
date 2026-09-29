@@ -1,16 +1,38 @@
-# React + Vite
+# MovieApp 🍿
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive movie and TV show discovery web application built with React, React Router, and Tailwind CSS. It fetches live entertainment data in real-time from the TVMaze API, offering users a seamless browsing, instant searching, and detailed viewing experience.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Features
 
-## React Compiler
+* **Real-Time Search:** Instantly filter through TV shows and movies as you type.
+* **Dynamic Show Details:** Click on any show card to open an immersive, dark-themed modal featuring rich metadata, ratings, official site links, and show summaries.
+* **Responsive Grid Layout:** Optimized design that scales seamlessly across mobile devices, tablets, and desktop displays.
+* **Live API Integration:** Pulls up-to-date data directly from the TVMaze API.
+* **Modern UI/UX:** Styled completely with Tailwind CSS, featuring smooth transitions, badges, and dark mode support.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* **Frontend:** React, React Router
+* **Styling:** Tailwind CSS
+* **API:** [TVMaze API](https://www.tvmaze.com/api)
+* **Build Tool:** Vite / Create React App
+
+---
+
+## 📦 Getting Started
+
+Follow these instructions to get a copy of the project up and running on your local machine for development and testing.
+
+### Prerequisites
+
+Make sure you have Node.js and npm (or yarn) installed on your computer.
+
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/your-username/movieapp.git](https://github.com/your-username/movieapp.git)
